@@ -4,8 +4,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import org.junit.jupiter.api.Assertions;
-
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,17 +41,17 @@ public class StepDefinitions {
 
     @Then("the cart should contain {int} item")
     public void the_cart_should_contain_item(int itemCount) {
-        Assert.assertEquals(itemCount, shoppingCart.size());
+        Assertions.assertEquals(itemCount, shoppingCart.size());
     }
 
     @Then("the cart should display {string}")
     public void the_cart_should_display(String expectedItems) {
         String[] items = expectedItems.split(" and ");
-        Assert.assertTrue(shoppingCart.containsAll(List.of(items)));
+        Assertions.assertTrue(shoppingCart.containsAll(List.of(items)));
     }
 
     @Then("the cart should be empty")
     public void the_cart_should_be_empty() {
-        Assert.assertTrue(shoppingCart.isEmpty());
+        Assertions.assertTrue(shoppingCart.isEmpty());
     }
 }
