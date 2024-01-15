@@ -39,15 +39,17 @@ public class StepDefinitions {
         shoppingCart.remove(item);
     }
 
-    @Then("the cart should contain {int} item")
-    public void the_cart_should_contain_item(int itemCount) {
-        Assertions.assertEquals(itemCount, shoppingCart.size());
+    @Then("the cart should contain {int} items")
+    public void the_cart_should_contain_items(Integer itemCount) {
+        // Implement the step
+        Assertions.assertEquals(itemCount, shoppingCart.size(), "The number of items in the cart is incorrect.");
     }
 
-    @Then("the cart should display {string}")
-    public void the_cart_should_display(String expectedItems) {
-        String[] items = expectedItems.split(" and ");
-        Assertions.assertTrue(shoppingCart.containsAll(List.of(items)));
+    @Then("the cart should display {string} and {string}")
+    public void the_cart_should_display_and(String firstItem, String secondItem) {
+        // Implement the step
+        Assertions.assertTrue(shoppingCart.contains(firstItem) && shoppingCart.contains(secondItem),
+                "The cart does not contain the expected items.");
     }
 
     @Then("the cart should be empty")
