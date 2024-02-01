@@ -1,0 +1,22 @@
+name: OctaneIntegration
+on:
+  workflow_run:
+    workflows: [CI Workflow]
+    types: [completed]
+jobs:
+  octane_integration_job:
+    # List of runner tags
+    runs-on: [ubuntu-latest]
+    name: OctaneIntegration-${{ github.repository }}
+    steps:
+      - name: ALM Octane Octane Integration
+        uses: MicroFocus/alm-octane-github-actions-integration@v23.3.0
+        id: gitHubActionsIntegration
+        with:
+          octaneUrl: https://almoctane-eur.saas.microfocus.com/
+          octaneSharedSpace: 411029
+          octaneWorkspace: 1002
+          octaneClientId: ${{secrets.ALM_OCTANE_CLIENT_ID}}
+          octaneClientSecret: ${{secrets.ALM_OCTANE_CLIENT_SECRET}}
+          #githubToken: ${{secrets.GITHUB_TOKEN}}
+          serverBaseUrl: https://github.com/davbaster/cucumber-bdd-onlineshopping

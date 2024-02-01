@@ -1,0 +1,35 @@
+pipeline {
+    agent {
+        docker {
+            image 'maven:3.8.6-jdk-11-slim'
+            args '-v /root/.m2:/root/.m2'
+        }
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                // Get some code from a GitHub repository
+                git 'https://github.com/davbaster/cucumber-bdd-onlineshopping.git'
+            }
+        }
+        stage('Convert') {
+            steps {
+                convertTestsToRun format: '', framework: 'cucumber_jvm'
+            }
+        }
+        stage('Build') {
+            steps {
+                //Cucumber 4
+                //sh "mvn test -Dcucumber.options=\"${params.testsToRunConverted}\" -fn"
+                //Cucumber 5 and above
+                sh "mvn test -Dcucumber.features=\"${params.testsToRunConverted}\" -fn"
+
+            }
+        }
+        stage('Results') {
+           steps {
+                     publishGherkinResults '**/*OctaneGherkinResults.xml'
+           }
+        }
+    }
+}
