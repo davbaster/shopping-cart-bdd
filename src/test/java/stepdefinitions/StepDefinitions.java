@@ -14,18 +14,20 @@ public class StepDefinitions {
 
     @Given("I am a logged-in customer")
     public void i_am_a_logged_in_customer() {
-        // Simulate the customer login process
+        // Simulate the customer logging in
         isLoggedIn = true;
     }
 
     @Given("I have an empty shopping cart")
     public void i_have_an_empty_shopping_cart() {
+        // Clear any items in the shopping cart for simplicity
         shoppingCart.clear();
     }
 
-    @Given("I have a {string} in my shopping cart")
+    @Given("I have {string} in my shopping cart")
     public void i_have_item_in_my_shopping_cart(String item) {
-        shoppingCart.clear(); // Clear previous items for simplicity
+        // Clear previous items for simplicity
+        shoppingCart.clear();
         shoppingCart.add(item);
     }
 
@@ -39,21 +41,28 @@ public class StepDefinitions {
         shoppingCart.remove(item);
     }
 
+    @When("I clear all items from the cart")
+    public void i_clear_all_items_from_the_cart() {
+        shoppingCart.clear();
+    }
+
     @Then("the cart should contain {int} items")
     public void the_cart_should_contain_items(Integer itemCount) {
-        // Implement the step
         Assertions.assertEquals(itemCount, shoppingCart.size(), "The number of items in the cart is incorrect.");
     }
 
+    @Then("the cart should display {string}")
+    public void the_cart_should_display(String item) {
+        Assertions.assertTrue(shoppingCart.contains(item), "The cart does not contain the expected items.");
+    }
+
     @Then("the cart should display {string} and {string}")
-    public void the_cart_should_display_and(String firstItem, String secondItem) {
-        // Implement the step
-        Assertions.assertTrue(shoppingCart.contains(firstItem) && shoppingCart.contains(secondItem),
-                "The cart does not contain the expected items.");
+    public void the_cart_should_display_and(String item1, String item2) {
+        Assertions.assertTrue(shoppingCart.contains(item1) && shoppingCart.contains(item2), "The cart does not contain the expected items.");
     }
 
     @Then("the cart should be empty")
     public void the_cart_should_be_empty() {
-        Assertions.assertTrue(shoppingCart.isEmpty());
+        Assertions.assertTrue(shoppingCart.isEmpty(), "The cart is not empty.");
     }
 }
