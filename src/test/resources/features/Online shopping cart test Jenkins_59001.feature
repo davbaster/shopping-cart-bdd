@@ -26,3 +26,23 @@ Feature: Online Shopping Cart
     And I have a "Black Sneakers" in my shopping cart
     When I remove the "Black Sneakers" from the cart
     Then the cart should be empty
+
+  Scenario: Clearing all items from the cart
+    Given I am a logged-in customer
+    And I have multiple items in my shopping cart
+    When I clear all items from the cart
+    Then the cart should be empty
+
+  Scenario: Verifying the cart is empty after clearing
+    Given I am a logged-in customer
+    And I have multiple items in my shopping cart
+    When I clear all items from the cart
+    Then the cart should contain 0 items
+
+  Scenario: Adding items and checking the cart count
+    Given I am a logged-in customer
+    And I have an empty shopping cart
+    When I add a "Yellow Hat" to the cart
+    And I add a "Blue Jeans" to the cart
+    Then the cart should contain 2 items
+    And the cart should display "Yellow Hat" and "Blue Jeans"
