@@ -31,6 +31,21 @@ public class StepDefinitions {
         shoppingCart.add(item);
     }
 
+    @Given("I have a {string} in my shopping cart")
+    public void i_have_a_in_my_shopping_cart(String item) {
+        // Clear previous items for simplicity
+        shoppingCart.clear();
+        shoppingCart.add(item);
+    }
+
+    @Given("I have multiple items in my shopping cart")
+    public void i_have_multiple_items_in_my_shopping_cart() {
+        // Add multiple items to the cart
+        shoppingCart.clear();
+        shoppingCart.add("Item1");
+        shoppingCart.add("Item2");
+    }
+
     @When("I add a {string} to the cart")
     public void i_add_a_to_the_cart(String item) {
         shoppingCart.add(item);
