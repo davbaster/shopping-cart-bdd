@@ -24,13 +24,6 @@ public class StepDefinitions {
         shoppingCart.clear();
     }
 
-    @Given("I have {string} in my shopping cart")
-    public void i_have_item_in_my_shopping_cart(String item) {
-        // Clear previous items for simplicity
-        shoppingCart.clear();
-        shoppingCart.add(item);
-    }
-
     @Given("I have a {string} in my shopping cart")
     public void i_have_a_in_my_shopping_cart(String item) {
         // Clear previous items for simplicity
@@ -63,11 +56,6 @@ public class StepDefinitions {
 
     @Then("the cart should contain {int} item")
     public void the_cart_should_contain_item(Integer itemCount) {
-        Assertions.assertEquals(itemCount.intValue(), shoppingCart.size(), "The number of items in the cart is incorrect.");
-    }
-
-    @Then("the cart should contain {int} items")
-    public void the_cart_should_contain_items(Integer itemCount) {
         Assertions.assertEquals(itemCount.intValue(), shoppingCart.size(), "The number of items in the cart is incorrect.");
     }
 
