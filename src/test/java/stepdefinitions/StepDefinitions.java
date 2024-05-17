@@ -46,19 +46,24 @@ public class StepDefinitions {
         shoppingCart.clear();
     }
 
+    @Then("the cart should contain {int} item")
+    public void the_cart_should_contain_item(Integer itemCount) {
+        Assertions.assertEquals(itemCount.intValue(), shoppingCart.size(), "The number of items in the cart is incorrect.");
+    }
+
     @Then("the cart should contain {int} items")
     public void the_cart_should_contain_items(Integer itemCount) {
-        Assertions.assertEquals(itemCount, shoppingCart.size(), "The number of items in the cart is incorrect.");
+        Assertions.assertEquals(itemCount.intValue(), shoppingCart.size(), "The number of items in the cart is incorrect.");
     }
 
     @Then("the cart should display {string}")
     public void the_cart_should_display(String item) {
-        Assertions.assertTrue(shoppingCart.contains(item), "The cart does not contain the expected items.");
+        Assertions.assertTrue(shoppingCart.contains(item), "The cart does not contain the expected item: " + item);
     }
 
     @Then("the cart should display {string} and {string}")
     public void the_cart_should_display_and(String item1, String item2) {
-        Assertions.assertTrue(shoppingCart.contains(item1) && shoppingCart.contains(item2), "The cart does not contain the expected items.");
+        Assertions.assertTrue(shoppingCart.contains(item1) && shoppingCart.contains(item2), "The cart does not contain the expected items: " + item1 + " and " + item2);
     }
 
     @Then("the cart should be empty")
