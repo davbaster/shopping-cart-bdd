@@ -47,11 +47,6 @@
             <artifactId>messages</artifactId>
             <version>17.1.1</version>
         </dependency>
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>html-formatter</artifactId>
-            <version>17.1.1</version>
-        </dependency>
     </dependencies>
 
     <build>
