@@ -7,13 +7,6 @@
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
-         <!-- https://mvnrepository.com/artifact/com.microfocus.adm.almoctane.bdd/bdd2octane -->
-         <dependency>
-             <groupId>com.microfocus.adm.almoctane.bdd</groupId>
-             <artifactId>bdd2octane</artifactId>
-             <version>1.1.7</version>
-         </dependency>
-
         <!-- Cucumber dependencies -->
         <dependency>
             <groupId>io.cucumber</groupId>
@@ -23,6 +16,12 @@
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-junit</artifactId>
+            <version>7.2.3</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit-platform-engine</artifactId>
             <version>7.2.3</version>
             <scope>test</scope>
         </dependency>
@@ -40,9 +39,18 @@
         </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-junit-platform-engine</artifactId>
-            <version>7.2.3</version>
-            <scope>test</scope>
+            <artifactId>gherkin</artifactId>
+            <version>19.0.3</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>messages</artifactId>
+            <version>17.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>html-formatter</artifactId>
+            <version>17.1.1</version>
         </dependency>
     </dependencies>
 
@@ -75,7 +83,7 @@
                 </configuration>
             </plugin>
 
-            <!-- Maven Cucumber Plugin -->
+            <!-- Maven Failsafe Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
