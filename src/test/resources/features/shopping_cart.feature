@@ -1,3 +1,5 @@
+#Auto generated Octane revision tag
+@TID72016REV0.0.1
 Feature: Online Shopping Cart
 
   As a customer
