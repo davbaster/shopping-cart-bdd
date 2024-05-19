@@ -42,11 +42,10 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version> <!-- Make sure to use an updated version of the plugin -->
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.2</version>
                 <configuration>
-                    <source>11</source> <!-- Updated to match JDK version -->
-                    <target>11</target> <!-- Updated to match JDK version -->
+                    <workingDirectory>${project.basedir}</workingDirectory>
                 </configuration>
             </plugin>
         </plugins>
