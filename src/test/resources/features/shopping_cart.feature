@@ -1,6 +1,4 @@
-#Auto generated Octane revision tag
-@TID72016REV0.0.1
-Feature: Online Shopping Cart
+Feature: Online Shopping Cart 2
 
   As a customer
   I want to add items to my shopping cart
